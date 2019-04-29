@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,13 +21,14 @@ import com.example.restapi.entities.Employee;
 import com.example.restapi.services.EmployeeService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/nitingour")
 public class MainController {
 
 	@Autowired
 	EmployeeService empservice;
-	
-	@GetMapping("/getallemp")
+
+	@RequestMapping(method = RequestMethod.GET, value="/getallemp")
+	//@GetMapping("/getallemp")
 	//@ResponseBody   //JavaObject into JSON OBject
 	public Iterable<Employee> getAllEmp()
 	{
